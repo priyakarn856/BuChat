@@ -1,0 +1,144 @@
+/* =========================================
+   Layout & Positioning
+   ========================================= */
+.modal-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-glass-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1;
+}
+
+.modal-positioner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  pointer-events: none; /* Allows clicks to pass through empty space */
+}
+
+/* =========================================
+   The Glass Container
+   ========================================= */
+.modal-glass-container {
+  pointer-events: auto; /* Re-enable clicks */
+  
+  /* Glass Variables */
+  background: var(--glass-bg, #1e293b);
+  border: 1px solid var(--glass-border, rgba(255,255,255,0.1));
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 24px;
+  
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 85vh;
+  width: 100%;
+}
+
+/* Sizes */
+.modal-glass-container.small { max-width: 420px; }
+.modal-glass-container.medium { max-width: 600px; }
+.modal-glass-container.large { max-width: 900px; }
+
+/* Dark Mode Glow */
+[data-theme='dark'] .modal-glass-container {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 
+              0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================================
+   Header
+   ========================================= */
+.modal-glass-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--glass-border, rgba(255,255,255,0.05));
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main, #f1f5f9);
+  letter-spacing: -0.01em;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted, #94a3b8);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  transform: rotate(90deg);
+}
+
+/* =========================================
+   Content Body
+   ========================================= */
+.modal-glass-content {
+  padding: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+  color: var(--text-main, #f1f5f9);
+}
+
+/* Custom Scrollbar */
+.modal-glass-content::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-glass-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal-glass-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+}
+.modal-glass-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================
+   Mobile Responsiveness
+   ========================================= */
+@media (max-width: 640px) {
+  .modal-positioner {
+    padding: 0;
+    align-items: flex-end; /* Sheet style on mobile */
+    height: 100%;
+  }
+
+  .modal-glass-container {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    max-height: 95vh;
+    animation: none; /* Let Framer handle it */
+  }
+}

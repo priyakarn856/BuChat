@@ -1,0 +1,179 @@
+/* =========================================
+   Overlay & Container
+   ========================================= */
+.confirm-overlay {
+  position: fixed;
+  inset: 0; /* top, right, bottom, left = 0 */
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px); /* Strong blur behind dialog */
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1rem;
+}
+
+/* =========================================
+   The Glass Dialog Card
+   ========================================= */
+.confirm-glass-card {
+  /* Inherit Variables from your theme */
+  background: var(--glass-bg, #1e293b);
+  border: 1px solid var(--glass-border, rgba(255,255,255,0.1));
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border-radius: 24px;
+  
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+  position: relative;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   Header & Icon
+   ========================================= */
+.confirm-header {
+  padding: 24px 24px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}
+
+.icon-wrapper {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Icon Variants */
+.icon-wrapper.danger { background: rgba(239, 68, 68, 0.1); color: #ef4444; border-color: rgba(239, 68, 68, 0.2); }
+.icon-wrapper.warning { background: rgba(245, 158, 11, 0.1); color: #f59e0b; border-color: rgba(245, 158, 11, 0.2); }
+.icon-wrapper.primary { background: rgba(99, 102, 241, 0.1); color: #6366f1; border-color: rgba(99, 102, 241, 0.2); }
+
+.confirm-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main, #f1f5f9);
+  letter-spacing: -0.01em;
+}
+
+/* =========================================
+   Body Text
+   ========================================= */
+.confirm-body {
+  padding: 0 24px 24px;
+  text-align: center;
+}
+
+.confirm-body p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted, #94a3b8);
+}
+
+/* =========================================
+   Actions (Buttons)
+   ========================================= */
+.confirm-actions {
+  padding: 16px 24px 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: stretch;
+  background: rgba(0,0,0,0.1); /* Subtle darkening for footer */
+  border-top: 1px solid var(--glass-border, rgba(255,255,255,0.05));
+}
+
+.confirm-actions button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+/* Cancel Button */
+.glass-btn-ghost {
+  background: transparent;
+  color: var(--text-muted, #94a3b8);
+  border: 1px solid transparent;
+}
+.glass-btn-ghost:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-main, #fff);
+}
+
+/* Confirm Button Base */
+.glass-btn-solid {
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.glass-btn-solid:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+
+/* Confirm Button Variants */
+.glass-btn-solid.danger { 
+  background: linear-gradient(135deg, #ef4444, #dc2626); 
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+.glass-btn-solid.warning { 
+  background: linear-gradient(135deg, #f59e0b, #d97706); 
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+.glass-btn-solid.primary { 
+  background: var(--primary-gradient, linear-gradient(135deg, #6366f1, #a855f7));
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* =========================================
+   Decorative Glow (Cyberpunk bleed)
+   ========================================= */
+.dialog-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 5px;
+  background: white;
+  filter: blur(20px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.dialog-glow.danger { background: #ef4444; }
+.dialog-glow.warning { background: #f59e0b; }
+.dialog-glow.primary { background: #6366f1; }
+
+/* =========================================
+   Mobile Responsiveness
+   ========================================= */
+@media (max-width: 480px) {
+  .confirm-glass-card {
+    max-width: 90vw;
+  }
+  .confirm-actions {
+    flex-direction: column-reverse;
+  }
+  .confirm-actions button {
+    width: 100%;
+  }
+}

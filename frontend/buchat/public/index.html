@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="canonical" href="https://buchat.me/" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    
+    <title>BuChat - Modern Social Platform with End-to-End Encryption</title>
+    <meta name="title" content="BuChat - Modern Social Platform with End-to-End Encryption">
+    <meta name="description" content="Join BuChat for secure community discussions with end-to-end encrypted messaging. Create posts, join communities, earn karma, follow users, and engage in real-time conversations.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://buchat.me/">
+    <meta property="og:title" content="BuChat - Modern Social Platform with End-to-End Encryption">
+    <meta property="og:description" content="Join BuChat for secure community discussions with end-to-end encrypted messaging. Create posts, join communities, earn karma, and engage in real-time conversations.">
+    <meta property="og:image" content="%PUBLIC_URL%/logo192.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://buchat.me/">
+    <meta property="twitter:title" content="BuChat - Modern Social Platform with End-to-End Encryption">
+    <meta property="twitter:description" content="Join BuChat for secure community discussions with end-to-end encrypted messaging. Create posts, join communities, and earn karma.">
+    <meta property="twitter:image" content="%PUBLIC_URL%/logo192.png">
+
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="%PUBLIC_URL%/favicon.svg" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/site.webmanifest" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <!-- Organization Schema for Knowledge Panel -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "BuChat",
+      "alternateName": "BuChat - Modern Social Platform",
+      "url": "https://buchat.me",
+      "logo": "https://buchat.me/logo192.png",
+      "description": "BuChat is a modern social platform where users create and share content within communities, engage through upvotes and nested comments, earn karma points, follow other users, and communicate via encrypted direct messaging.",
+      "foundingDate": "2024",
+      "slogan": "Connect, Share, Engage Securely",
+      "sameAs": [
+        "https://twitter.com/buchat",
+        "https://instagram.com/buchat",
+        "https://facebook.com/buchat"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@buchat.me"
+      }
+    }
+    </script>
+
+    <!-- WebSite Schema with Sitelinks Search Box -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "BuChat",
+      "alternateName": "BuChat Social Platform",
+      "url": "https://buchat.me/",
+      "description": "Modern social platform featuring community discussions, encrypted messaging, karma-based user levels, and real-time notifications.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://buchat.me/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BuChat",
+      "applicationCategory": "SocialNetworkingApplication",
+      "operatingSystem": "Web Browser, Cross-platform",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": "Encrypted Messaging, Community Creation, Karma System, Upvote/Downvote, Nested Comments, Real-time Notifications, User Following, Leaderboard Rankings",
+      "description": "Modern social platform with community discussions, encrypted direct messaging, karma points and user levels, upvote/downvote system, and real-time notifications."
+    }
+    </script>
+
+    <!-- Breadcrumb List for Site Structure -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://buchat.me/"
+        }
+      ]
+    }
+    </script>
+
+    <!-- FAQ Schema for Common Questions -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is BuChat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BuChat is a modern social platform where users create and join communities, share posts, engage through upvotes and comments, earn karma points, and communicate via encrypted messaging. Learn more at https://buchat.me/about"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BuChat messaging secure?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, BuChat uses end-to-end encryption inspired by industry-standard practices. Messages are encrypted to ensure privacy and security."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the karma system work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Users earn karma points through upvotes on their posts and comments. Karma determines user levels and rankings on the leaderboard. The leaderboard shows top 50 users with filters for All Time, Monthly, and Weekly rankings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BuChat free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, BuChat is completely free to use. Users can create accounts, join communities, post content, message others, and access all features at no cost."
+          }
+        }
+      ]
+    }
+    </script>
+
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

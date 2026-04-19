@@ -1,0 +1,333 @@
+/* Design Tokens */
+:root {
+  /* Spacing Scale */
+  --rem360: 22.5rem;
+  --rem320: 20rem;
+  --rem192: 12rem;
+  --rem144: 9rem;
+  --rem128: 8rem;
+  --rem96: 6rem;
+  --rem90: 5.625rem;
+  --rem88: 5.5rem;
+  --rem64: 4rem;
+  --rem56: 3.5rem;
+  --rem48: 3rem;
+  --rem40: 2.5rem;
+  --rem36: 2.25rem;
+  --rem32: 2rem;
+  --rem28: 1.75rem;
+  --rem26: 1.625rem;
+  --rem24: 1.5rem;
+  --rem22: 1.375rem;
+  --rem20: 1.25rem;
+  --rem18: 1.125rem;
+  --rem16: 1rem;
+  --rem15: 0.9375rem;
+  --rem14: 0.875rem;
+  --rem12: 0.75rem;
+  --rem10: 0.625rem;
+  --rem8: 0.5rem;
+  --rem6: 0.375rem;
+  --rem4: 0.25rem;
+  --rem2: 0.125rem;
+  --rem1: 0.0625rem;
+
+  /* Spacer tokens */
+  --spacer-4xs: 0.125rem;
+  --spacer-2xs: 0.25rem;
+  --spacer-xs: 0.5rem;
+  --spacer-sm: 0.75rem;
+  --spacer-md: 1rem;
+  --spacer-lg: 1.5rem;
+  --spacer-xl: 2rem;
+  --spacer-2xl: 3rem;
+
+  /* Size tokens */
+  --size-2xs: 0.25rem;
+  --size-xs: 0.5rem;
+  --size-sm: 0.75rem;
+  --size-md: 1rem;
+  --size-lg: 1.5rem;
+  --size-xl: 2rem;
+  --size-2xl: 3rem;
+  --size-3xl: 4rem;
+  --size-4xl: 6rem;
+  --size-5xl: 8rem;
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 2rem;
+  --radius-full: 624.9375rem;
+
+  /* Line/Border width */
+  --line-sm: 0.0625rem;
+  --line-md: 0.125rem;
+  --line-lg: 0.25rem;
+
+  /* Layout specific */
+  --shreddit-header-height: 56px;
+  --shreddit-header-large-height: 56px;
+  --shreddit-bottom-padding: 52px;
+  --page-y-padding: var(--shreddit-header-height);
+
+  /* Font families */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  --font-mono: Noto Mono, Menlo, Monaco, Consolas, monospace;
+
+  /* Typography scale */
+  --font-10: normal 400 0.625rem/1rem var(--font-sans);
+  --font-12: normal 400 0.75rem/1rem var(--font-sans);
+  --font-14: normal 400 0.875rem/1.25rem var(--font-sans);
+  --font-16: normal 400 1rem/1.25rem var(--font-sans);
+  --font-18: normal 400 1.125rem/1.5rem var(--font-sans);
+  --font-20: normal 400 1.25rem/1.25rem var(--font-sans);
+  --font-24: normal 400 1.5rem/1.75rem var(--font-sans);
+  --font-32: normal 400 2rem/2.25rem var(--font-sans);
+  --font-48: normal 400 3rem/3rem var(--font-sans);
+  --font-64: normal 400 4rem/4rem var(--font-sans);
+
+  /* Heading fonts */
+  --font-title-h0: var(--font-64);
+  --font-title-h1: var(--font-32);
+  --font-title-h2: var(--font-24);
+  --font-title-h3: var(--font-18);
+  --font-title-h4: var(--font-16);
+  --font-title-h5: var(--font-14);
+  --font-title-h6: var(--font-12);
+
+  /* Button fonts */
+  --font-button-lg: normal 600 0.875rem/1.25rem var(--font-sans);
+  --font-button-md: normal 600 0.875rem/1.25rem var(--font-sans);
+  --font-button-sm: normal 600 0.75rem/1rem var(--font-sans);
+}
+
+/* Light Theme Colors */
+:root,
+:root.theme-light {
+  --color-global-black: #000000;
+  --color-global-white: #FFFFFF;
+  --color-global-orangered: #FF4500;
+  --color-global-alienblue: #0079d3;
+  --color-global-brand-orangered: #FF4500;
+
+  /* Tone scale (neutral grays) */
+  --color-tone-1: #1a1a1b;
+  --color-tone-2: #6a6d6f;
+  --color-tone-3: #878a8c;
+  --color-tone-4: #d3d6da;
+  --color-tone-5: #edeff1;
+  --color-tone-6: #f6f7f8;
+  --color-tone-7: #ffffff;
+
+  /* Primary colors */
+  --color-primary: #115BCA;
+  --color-primary-background: #0A449B;
+  --color-primary-background-hover: #0A2F6C;
+  --color-primary-plain: #0A449B;
+  --color-primary-visited: #9B00D4;
+
+  /* Neutral colors */
+  --color-neutral-background: #FFFFFF;
+  --color-neutral-background-container: #F6F8F9;
+  --color-neutral-background-hover: #F6F8F9;
+  --color-neutral-background-strong: #FFFFFF;
+  --color-neutral-background-weak: #F6F8F9;
+  --color-neutral-content: #333D42;
+  --color-neutral-content-strong: #181C1F;
+  --color-neutral-content-weak: #5C6C74;
+  --color-neutral-border: rgba(0, 0, 0, 0.2);
+  --color-neutral-border-weak: rgba(0, 0, 0, 0.1);
+  --color-neutral-border-strong: #181C1F;
+
+  /* UI colors */
+  --color-ui-canvas: #F6F7F8;
+  --color-ui-modalbackground: #FFFFFF;
+
+  /* Action colors */
+  --color-action-primary: #0079d3;
+  --color-action-secondary: #006cbf;
+  --color-action-upvote: #FF4500;
+  --color-action-downvote: #7193ff;
+
+  /* Semantic colors */
+  --color-success-content: #46d160;
+  --color-success-background: #008A10;
+  --color-danger-content: #ea0027;
+  --color-danger-background: #EB001F;
+  --color-warning-background: #FFBF0B;
+  --color-caution-background: #FFBF0B;
+
+  /* Scrim/Overlay */
+  --color-scrim: rgba(0, 0, 0, 0.6);
+  --color-scrim-background: rgba(0, 0, 0, 0.6);
+
+  /* Shadows */
+  --elevation-xs: 0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.25);
+  --elevation-sm: 0 0.0625rem 0.25rem 0 rgba(0, 0, 0, 0.15), 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.15);
+  --elevation-md: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.1), 0 0.375rem 0.75rem 0 rgba(0, 0, 0, 0.25);
+  --elevation-lg: 0 0.75rem 0.75rem 0 rgba(0, 0, 0, 0.15), 0 1rem 2rem 0 rgba(0, 0, 0, 0.25);
+  --elevation-focus-ring: 0 0 0 0.25rem #0079d3;
+
+  --boxshadow-modal: 0px 2px 15px rgba(26, 26, 27, 0.3);
+  --boxshadow-navigation: 0px 4px 14px rgba(0, 0, 0, 0.1);
+  --boxshadow-tooltip: 0 1px 4px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.15);
+
+  /* Content background */
+  --shreddit-content-background: var(--color-tone-7);
+
+  /* Legacy mappings */
+  --background: var(--color-ui-canvas);
+  --surface: var(--color-neutral-background);
+  --text-primary: var(--color-neutral-content-strong);
+  --text-secondary: var(--color-neutral-content-weak);
+  --border-light: var(--color-neutral-border-weak);
+  --border: var(--color-neutral-border);
+  --primary: var(--color-action-primary);
+  --success: var(--color-success-content);
+  --danger: var(--color-danger-content);
+  --warning: var(--color-warning-background);
+  --shadow-sm: var(--elevation-sm);
+  --shadow-md: var(--elevation-md);
+  --shadow-lg: var(--elevation-lg);
+}
+
+/* Dark Theme Colors */
+:root.theme-dark,
+.theme-dark {
+  --color-tone-1: #F2F2F2;
+  --color-tone-2: #ACACAC;
+  --color-tone-3: #434343;
+  --color-tone-4: #303030;
+  --color-tone-5: #1E1E1E;
+  --color-tone-6: #131313;
+  --color-tone-7: #080808;
+
+  /* Primary colors */
+  --color-primary: #648EFC;
+  --color-primary-background: #115BCA;
+  --color-primary-background-hover: #1870F4;
+  --color-primary-plain: #648EFC;
+  --color-primary-visited: #CF5FFF;
+
+  /* Neutral colors */
+  --color-neutral-background: #0E1113;
+  --color-neutral-background-container: #181C1F;
+  --color-neutral-background-hover: #181C1F;
+  --color-neutral-background-strong: #181C1F;
+  --color-neutral-background-weak: #000000;
+  --color-neutral-content: #B7CAD4;
+  --color-neutral-content-strong: #EEF1F3;
+  --color-neutral-content-weak: #8BA2AD;
+  --color-neutral-border: rgba(255, 255, 255, 0.2);
+  --color-neutral-border-weak: rgba(255, 255, 255, 0.1);
+  --color-neutral-border-strong: #F6F8F9;
+
+  /* UI colors */
+  --color-ui-canvas: #080808;
+  --color-ui-modalbackground: #181C1F;
+
+  /* Action colors */
+  --color-action-upvote: #FF4500;
+  --color-action-downvote: #7193ff;
+
+  /* Semantic colors */
+  --color-success-content: #01A816;
+  --color-danger-content: #FF4F40;
+
+  /* Scrim/Overlay */
+  --color-scrim: rgba(0, 0, 0, 0.6);
+  --color-scrim-background: rgba(0, 0, 0, 0.6);
+
+  /* Shadows */
+  --elevation-xs: 0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.67);
+  --elevation-sm: 0 0.0625rem 0.25rem 0 rgba(0, 0, 0, 0.33), 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.33);
+  --elevation-md: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2), 0 0.375rem 0.75rem 0 rgba(0, 0, 0, 0.5);
+  --elevation-lg: 0 0.75rem 0.75rem 0 rgba(0, 0, 0, 0.2), 0 1rem 2rem 0 rgba(0, 0, 0, 0.5);
+
+  --boxshadow-modal: 0px 2px 15px rgba(0, 0, 0, 0.3);
+  --boxshadow-tooltip: 0 1px 4px rgba(0, 0, 0, 0.33), 0 4px 4px rgba(0, 0, 0, 0.33);
+
+  /* Content background */
+  --shreddit-content-background: var(--color-neutral-background-strong);
+
+  /* Legacy mappings */
+  --background: var(--color-ui-canvas);
+  --surface: var(--color-neutral-background-strong);
+  --text-primary: var(--color-neutral-content-strong);
+  --text-secondary: var(--color-neutral-content-weak);
+  --border-light: var(--color-neutral-border-weak);
+  --border: var(--color-neutral-border);
+  --primary: var(--color-primary);
+  --success: var(--color-success-content);
+  --danger: var(--color-danger-content);
+  --warning: var(--color-warning-background);
+}
+
+/* Prefers color scheme detection */
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light) {
+    --color-tone-1: #F2F2F2;
+    --color-tone-2: #ACACAC;
+    --color-tone-3: #434343;
+    --color-tone-4: #303030;
+    --color-tone-5: #1E1E1E;
+    --color-tone-6: #131313;
+    --color-tone-7: #080808;
+
+    --color-neutral-background: #0E1113;
+    --color-neutral-background-container: #181C1F;
+    --color-neutral-content: #B7CAD4;
+    --color-neutral-content-strong: #EEF1F3;
+    --color-ui-canvas: #080808;
+    
+    --background: #080808;
+    --surface: #181C1F;
+    --text-primary: #EEF1F3;
+    --text-secondary: #8BA2AD;
+  }
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--background);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+.styled-scrollbars {
+  scrollbar-color: var(--color-neutral-border) transparent;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+}
+
+.styled-scrollbars::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.styled-scrollbars::-webkit-scrollbar-track {
+  background: var(--shreddit-content-background);
+}
+
+.styled-scrollbars::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-border);
+  border: 6px solid var(--shreddit-content-background);
+  border-radius: 8px;
+}
+
+.styled-scrollbars::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-border-strong);
+}

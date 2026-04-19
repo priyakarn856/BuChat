@@ -1,0 +1,203 @@
+/* Root App Container */
+.App {
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  
+  /* Apply the theme variable */
+  background: var(--color-ui-canvas, var(--background, #F6F7F8));
+  
+  /* === GRADIENT FIX START === */
+  /* Ensures gradient doesn't scroll/tile. Stays fixed to viewport. */
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* === GRADIENT FIX END === */
+  
+  display: flex;
+  flex-direction: column;
+  
+  /* Prevent horizontal overflow on mobile */
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Global mobile overflow prevention */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Mobile bottom padding for fixed nav */
+@media (max-width: 768px) {
+  .App {
+    padding-bottom: 64px; /* Space for MobileBottomNav */
+    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Auth pages full-width layout */
+.app-grid-container.auth-layout {
+  grid-template-columns: 1fr !important;
+  --sidebar-width: 0px;
+}
+
+.app-grid-container.auth-layout .app-subgrid {
+  grid-column: 1;
+  max-width: 100%;
+}
+
+.app-grid-container.auth-layout .app-content {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  gap: 0;
+}
+
+.app-grid-container.auth-layout .app-main {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Structural grid layout */
+.app-grid-container {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: calc(100vh - var(--shreddit-header-height, 56px));
+  padding-top: var(--shreddit-header-height, 56px);
+  
+  /* We remove the background here because .App handles the global gradient now */
+  background: transparent; 
+  
+  grid-template-columns: minmax(0, 1fr);
+  --sidebar-width: 270px; /* Matched to Sidebar.css */
+}
+
+.app-grid-container.sidebar-collapsed {
+  --sidebar-width: 64px;
+}
+
+.app-grid-container.sidebar-expanded {
+  --sidebar-width: 220px;
+}
+
+@media (max-width: 1023px) {
+  .app-grid-container {
+    --sidebar-width: 0px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-grid-container {
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+    transition: grid-template-columns 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.app-left-rail {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .app-left-rail {
+    display: block;
+    grid-column: 1; 
+    
+    /* Fixed Sidebar Position */
+    position: fixed;
+    top: var(--shreddit-header-height, 56px); 
+    left: 0;
+    
+    /* Auto Width to match collapsed/expanded state */
+    width: fit-content;
+    
+    height: calc(100vh - var(--shreddit-header-height, 56px));
+    overflow-y: auto;
+    z-index: 50;
+    border-right: 1px solid var(--border-color, #e5e7eb); 
+  }
+}
+
+.app-subgrid {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - var(--shreddit-header-height, 56px));
+  flex: 1;
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 1024px) {
+  .app-subgrid {
+    grid-column: 2;
+  }
+}
+
+.app-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacer-xl, 2rem);
+  width: 100%;
+  padding: var(--spacer-lg, 1.5rem) var(--spacer-md, 1rem) var(--spacer-2xl, 3rem);
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .app-content {
+    padding: var(--spacer-xl, 2rem) var(--spacer-lg, 1.5rem) var(--spacer-2xl, 3rem);
+  }
+}
+
+@media (min-width: 1280px) {
+  .app-content {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: flex-start;
+  }
+}
+
+.app-main {
+  grid-column: 1;
+  width: 100%;
+  max-width: 100%;
+  background: transparent; /* Changed to transparent so gradient shows */
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Toast custom styles */
+.Toastify__toast {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: var(--surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  border-radius: 8px;
+}
+
+.Toastify__progress-bar {
+  background: var(--primary) !important;
+}
+
+.Toastify__toast--success .Toastify__progress-bar {
+  background: var(--success) !important;
+}
+
+.Toastify__toast--error .Toastify__progress-bar {
+  background: var(--danger) !important;
+}
+
+.Toastify__toast--warning .Toastify__progress-bar {
+  background: var(--warning) !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

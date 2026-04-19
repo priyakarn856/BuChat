@@ -1,0 +1,452 @@
+/**
+ * ADD THESE STYLES TO MessageInterface.css
+ * Professional messaging features CSS
+ */
+
+/* ========================================== */
+/* DATE SEPARATORS */
+/* ========================================== */
+
+.date-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  position: relative;
+  user-select: none;
+}
+
+.date-separator::before,
+.date-separator::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.1) 80%,
+    transparent
+  );
+}
+
+.date-separator span {
+  padding: 4px 12px;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* Light theme */
+[data-theme="light"] .date-separator::before,
+[data-theme="light"] .date-separator::after {
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 0, 0, 0.1) 20%,
+    rgba(0, 0, 0, 0.1) 80%,
+    transparent
+  );
+}
+
+[data-theme="light"] .date-separator span {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.2);
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* ========================================== */
+/* REACTION PILLS */
+/* ========================================== */
+
+.message-reactions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+  padding: 0 8px;
+}
+
+.received .message-reactions {
+  margin-left: 8px;
+}
+
+.sent .message-reactions {
+  margin-right: 8px;
+  justify-content: flex-end;
+}
+
+.reaction-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+}
+
+.reaction-pill:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: scale(1.05);
+}
+
+.reaction-pill.my-reaction {
+  background: rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+.reaction-pill.my-reaction:hover {
+  background: rgba(99, 102, 241, 0.4);
+  border-color: rgba(99, 102, 241, 0.6);
+}
+
+.reaction-emoji {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.reaction-count {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  min-width: 12px;
+  text-align: center;
+}
+
+/* Light theme */
+[data-theme="light"] .reaction-pill {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .reaction-pill:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+[data-theme="light"] .reaction-pill.my-reaction {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+[data-theme="light"] .reaction-pill.my-reaction:hover {
+  background: rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+[data-theme="light"] .reaction-count {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* ========================================== */
+/* PINNED MESSAGES BANNER */
+/* ========================================== */
+
+.pinned-messages-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(99, 102, 241, 0.2);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
+}
+
+.pinned-messages-banner svg {
+  color: #6366f1;
+  flex-shrink: 0;
+}
+
+.pinned-messages-banner span {
+  flex: 1;
+  font-weight: 500;
+}
+
+.pinned-messages-banner button {
+  padding: 4px 12px;
+  background: rgba(99, 102, 241, 0.3);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pinned-messages-banner button:hover {
+  background: rgba(99, 102, 241, 0.4);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-1px);
+}
+
+/* Light theme */
+[data-theme="light"] .pinned-messages-banner {
+  background: rgba(99, 102, 241, 0.1);
+  border-bottom-color: rgba(99, 102, 241, 0.2);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] .pinned-messages-banner button {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #111827;
+}
+
+[data-theme="light"] .pinned-messages-banner button:hover {
+  background: rgba(99, 102, 241, 0.3);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* ========================================== */
+/* ENHANCED CALL LOGS */
+/* ========================================== */
+
+.call-log {
+  padding: 16px;
+  background: rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.call-log-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.call-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.call-icon.missed {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.call-icon.ended {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.call-info {
+  flex: 1;
+}
+
+.call-type {
+  font-weight: 600;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2px;
+}
+
+.call-initiator {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+.call-duration {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  padding-top: 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Light theme */
+[data-theme="light"] .call-log {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.15);
+}
+
+[data-theme="light"] .call-type {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+[data-theme="light"] .call-initiator,
+[data-theme="light"] .call-duration {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] .call-duration {
+  border-top-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================== */
+/* STAR/PIN INDICATORS IN MESSAGE MENU */
+/* ========================================== */
+
+.menu-item svg[fill] {
+  transition: all 0.2s ease;
+}
+
+.menu-item:hover svg[fill] {
+  filter: brightness(1.2);
+}
+
+/* ========================================== */
+/* ENHANCED MESSAGE BUBBLES (WhatsApp Style) */
+/* ========================================== */
+
+/* Already applied in main update:
+- Sent messages: #dcf8c6 background, black text
+- Inline timestamps with margin-left: 8px
+*/
+
+/* Add subtle tail to bubbles for more authentic look */
+.text-bubble::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.received .text-bubble::before {
+  left: -8px;
+  border-width: 0 8px 8px 0;
+  border-color: transparent rgba(31, 41, 55, 0.95) transparent transparent;
+}
+
+.sent .text-bubble::before {
+  right: -8px;
+  border-width: 0 0 8px 8px;
+  border-color: transparent transparent transparent #dcf8c6;
+}
+
+[data-theme="light"] .received .text-bubble::before {
+  border-color: transparent #ffffff transparent transparent;
+}
+
+/* ========================================== */
+/* EMOJI PICKER POSITIONING FOR REACTIONS */
+/* ========================================== */
+
+.emoji-picker-wrapper {
+  position: absolute;
+  z-index: 1000;
+  animation: slideUp 0.2s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================== */
+/* QUICK REACTION TOOLBAR */
+/* ========================================== */
+
+.quick-reactions {
+  position: absolute;
+  bottom: 100%;
+  margin-bottom: 4px;
+  background: rgba(17, 24, 39, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 4px 8px;
+  display: flex;
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  animation: slideUp 0.15s ease;
+}
+
+.quick-reactions button {
+  padding: 4px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.quick-reactions button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.15);
+}
+
+[data-theme="light"] .quick-reactions {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .quick-reactions button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* ========================================== */
+/* SMOOTH SCROLL TO MESSAGE (for pinned banner click) */
+/* ========================================== */
+
+.message-highlight {
+  animation: highlightPulse 2s ease;
+}
+
+@keyframes highlightPulse {
+  0%, 100% {
+    background: transparent;
+  }
+  50% {
+    background: rgba(99, 102, 241, 0.2);
+  }
+}
+
+/* ========================================== */
+/* FORWARDED MESSAGE INDICATOR */
+/* ========================================== */
+
+.forwarded-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.sent .forwarded-label {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] .received .forwarded-label {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* ========================================== */
+/* END OF CSS ADDITIONS */
+/* ========================================== */

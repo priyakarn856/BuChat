@@ -1,0 +1,12 @@
+{
+  "name": "buchat-social",
+  "version": "1.0.0",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.0.0",
+    "@aws-sdk/lib-dynamodb": "^3.0.0",
+    "@aws-sdk/client-dax": "^3.0.0",
+    "ioredis": "^5.3.2",
+    "uuid": "^9.0.0",
+    "jsonwebtoken": "^9.0.0"
+  }
+}

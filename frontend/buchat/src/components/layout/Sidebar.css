@@ -1,0 +1,280 @@
+/* =========================================
+   Left Rail Container
+   ========================================= */
+.app-left-rail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: var(--bg-surface, #ffffff);
+  border-right: 1px solid var(--border-color, #e5e7eb);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overscroll-behavior: contain;
+}
+
+/* Dark Mode */
+[data-theme='dark'] .app-left-rail {
+  background: #100929;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================
+   Layout & Width Control
+   ========================================= */
+#flex-left-nav-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 220px; /* Expanded Width */
+  transition: width 0.3s ease;
+  overflow: hidden; /* CRITICAL: Prevents content from overflowing while shrinking */
+  overscroll-behavior: contain;
+}
+
+/* Collapsed State Container */
+#flex-left-nav-container.collapsed {
+  width: 64px; /* Fixed width when collapsed */
+}
+
+/* --- COLLAPSED STATE CHILDREN FIXES --- */
+#flex-left-nav-container.collapsed #flex-nav-buttons {
+  justify-content: center;
+  padding: 12px 0; /* Remove side padding so it fits */
+}
+
+#flex-left-nav-container.collapsed .nav-item {
+  justify-content: center;
+  padding: 10px 0; /* Remove side padding so icons are centered */
+}
+
+#flex-left-nav-container.collapsed .nav-label-container,
+#flex-left-nav-container.collapsed .section-title,
+#flex-left-nav-container.collapsed .section-icon,
+#flex-left-nav-container.collapsed .sidebar-footer {
+  display: none;
+  opacity: 0;
+}
+
+#flex-left-nav-container.collapsed .nav-section-header {
+  justify-content: center;
+  padding: 8px 0;
+}
+
+/* 5. Tighter padding for content area */
+#flex-left-nav-container.collapsed #flex-left-nav-contents {
+  padding: 8px 0; 
+}
+
+/* =========================================
+   Toggle Button Area
+   ========================================= */
+#flex-nav-buttons {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  height: 60px; /* Align with top navbar if needed */
+}
+
+.sidebar-toggle-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted, #64748b);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.sidebar-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text-main, #0f172a);
+}
+
+/* =========================================
+   Navigation Content
+   ========================================= */
+#flex-left-nav-contents {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px 12px;
+  overscroll-behavior: contain;
+  /* Custom Scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+#flex-left-nav-contents:hover {
+  scrollbar-color: var(--border-color, #ccc) transparent;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-divider {
+  border: 0;
+  height: 1px;
+  background: var(--border-color, #e5e7eb);
+  margin: 12px 0;
+}
+
+/* =========================================
+   Navigation Items
+   ========================================= */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Gap between icon and text */
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-secondary, #475569);
+  transition: all 0.2s ease;
+  margin-bottom: 2px;
+  white-space: nowrap;
+}
+
+/* Hover State */
+.nav-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+  color: var(--text-main, #0f172a);
+}
+
+[data-theme='dark'] .nav-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+/* Active State */
+.nav-item.active {
+  background: rgba(59, 130, 246, 0.1); /* Light Blue Background */
+  color: var(--primary-color, #2563eb);
+  font-weight: 600;
+}
+
+[data-theme='dark'] .nav-item.active {
+  background: rgba(59, 130, 246, 0.2);
+  color: #6360fa;
+}
+
+/* Icons */
+.nav-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.emoji-icon {
+  font-size: 18px;
+}
+
+.group-avatar-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.15);
+}
+
+[data-theme='dark'] .group-avatar-icon {
+  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+  border-color: rgba(129, 140, 248, 0.3);
+}
+
+.group-avatar-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.group-initial {
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+
+/* Text Container */
+.nav-label-container {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-label {
+  font-size: 0.95rem;
+}
+
+/* =========================================
+   Collapsible Sections (Groups)
+   ========================================= */
+.nav-section {
+  margin-top: 8px;
+}
+
+.nav-section-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.nav-section-header:hover {
+  color: var(--text-main, #0f172a);
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+.sidebar-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border-color, #e5e7eb);
+}
+
+.footer-links {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.footer-link {
+  font-size: 0.75rem;
+  color: var(--text-muted, #94a3b8);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: var(--primary, #6366f1);
+}
+
+.footer-text {
+  font-size: 0.75rem;
+  color: var(--text-muted, #94a3b8);
+  margin: 0;
+}

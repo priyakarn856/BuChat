@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Encryption</title>
+</head>
+<body>
+    <h1>Test Message Encryption</h1>
+    <button onclick="testEncryption()">Test Encryption</button>
+    <div id="result"></div>
+
+    <script>
+        async function deriveSharedKey(userId1, userId2) {
+            const sortedIds = [userId1, userId2].sort().join(':');
+            const encoder = new TextEncoder();
+            const data = encoder.encode(sortedIds);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            return await crypto.subtle.importKey(
+                'raw',
+                hashBuffer,
+                { name: 'AES-GCM', length: 256 },
+                false,
+                ['encrypt', 'decrypt']
+            );
+        }
+
+        async function encryptMessage(message, userId1, userId2) {
+            const key = await deriveSharedKey(userId1, userId2);
+            const encoder = new TextEncoder();
+            const data = encoder.encode(message);
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            
+            const encrypted = await crypto.subtle.encrypt(
+                { name: 'AES-GCM', iv },
+                key,
+                data
+            );
+            
+            const combined = new Uint8Array(iv.length + encrypted.byteLength);
+            combined.set(iv, 0);
+            combined.set(new Uint8Array(encrypted), iv.length);
+            
+            return btoa(String.fromCharCode(...combined));
+        }
+
+        async function decryptMessage(encryptedMessage, userId1, userId2) {
+            const key = await deriveSharedKey(userId1, userId2);
+            const combined = Uint8Array.from(atob(encryptedMessage), c => c.charCodeAt(0));
+            const iv = combined.slice(0, 12);
+            const data = combined.slice(12);
+            
+            const decrypted = await crypto.subtle.decrypt(
+                { name: 'AES-GCM', iv },
+                key,
+                data
+            );
+            
+            const decoder = new TextDecoder();
+            return decoder.decode(decrypted);
+        }
+
+        async function testEncryption() {
+            const user1 = 'user-123';
+            const user2 = 'user-456';
+            const message = 'Hello 👋 World 🌍';
+            
+            console.log('Original:', message);
+            
+            const encrypted = await encryptMessage(message, user1, user2);
+            console.log('Encrypted:', encrypted);
+            
+            const decrypted = await decryptMessage(encrypted, user1, user2);
+            console.log('Decrypted:', decrypted);
+            
+            const match = message === decrypted;
+            console.log('Match:', match);
+            
+            document.getElementById('result').innerHTML = `
+                <p><strong>Original:</strong> ${message}</p>
+                <p><strong>Encrypted:</strong> ${encrypted.substring(0, 50)}...</p>
+                <p><strong>Decrypted:</strong> ${decrypted}</p>
+                <p><strong>Match:</strong> ${match ? '✅ YES' : '❌ NO'}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.call-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+  transition: all 0.3s;
+}
+
+.call-button:hover:not(:disabled) {
+  background: rgba(76, 175, 80, 0.3);
+}
+
+.call-button.video {
+  background: rgba(33, 150, 243, 0.2);
+  color: #2196f3;
+}
+
+.call-button.video:hover:not(:disabled) {
+  background: rgba(33, 150, 243, 0.3);
+}
+
+.call-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

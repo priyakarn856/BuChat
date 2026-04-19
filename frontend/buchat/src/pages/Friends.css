@@ -1,0 +1,343 @@
+/* =========================================
+   Page & Layout
+   ========================================= */
+.friends-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.friends-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* =========================================
+   Header Section
+   ========================================= */
+.friends-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-glow-box {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+.header-title h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+/* Glass Search Bar */
+.glass-search-bar {
+  flex: 1;
+  max-width: 320px;
+  position: relative;
+}
+
+.glass-search-bar input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
+  background: var(--glass-bg, rgba(255,255,255,0.1));
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-main);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.glass-search-bar input:focus {
+  background: var(--surface-hover);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.15);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+/* =========================================
+   Neon Tabs
+   ========================================= */
+.glass-tabs-nav {
+  display: flex;
+  background: var(--glass-bg);
+  padding: 0.4rem;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none; /* Hide scrollbar */
+}
+
+.tab-btn {
+  position: relative;
+  flex: 1;
+  min-width: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: color 0.2s;
+  z-index: 1;
+}
+
+.tab-btn.active {
+  color: white; /* Contrast against active bg */
+}
+
+.tab-count {
+  background: rgba(255,255,255,0.15);
+  padding: 0.1rem 0.5rem;
+  border-radius: 99px;
+  font-size: 0.75rem;
+}
+
+.active-tab-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--primary-gradient); /* Neon gradient */
+  border-radius: 12px;
+  z-index: -1;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* =========================================
+   User Grid
+   ========================================= */
+.users-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.glass-user-card {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.glass-user-card:hover {
+  border-color: var(--accent-color);
+}
+
+/* Subtle glow behind card */
+.card-bg-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(99, 102, 241, 0.1), transparent);
+  z-index: 0;
+}
+
+.user-card-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  width: 100%;
+}
+
+.user-avatar-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 3px;
+  background: var(--surface-hover);
+  border: 1px solid var(--glass-border);
+  margin-bottom: 1rem;
+  transition: transform 0.2s;
+}
+
+.glass-user-card:hover .user-avatar-wrapper {
+  transform: scale(1.05);
+  border-color: var(--accent-color);
+}
+
+.user-avatar-wrapper img, .avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.user-card-info h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.user-card-info span {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.user-card-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.25rem 0;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  width: 100%;
+  justify-content: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat strong {
+  font-size: 1rem;
+  color: var(--text-main);
+}
+
+.stat span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.user-card-actions {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  z-index: 1;
+}
+
+.icon-only-btn {
+  padding: 0.5rem !important; /* Override standard button padding */
+  width: 42px;
+}
+
+.unfollow-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--glass-border);
+}
+.unfollow-btn:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+/* =========================================
+   Empty & Loading
+   ========================================= */
+.loading-grid {
+  display: contents; /* Keeps grid layout */
+}
+
+.skeleton-card {
+  height: 280px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 24px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
+
+.empty-state-glass {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 1rem;
+  background: var(--glass-bg);
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+}
+
+.empty-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--surface-hover);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--text-muted);
+}
+
+.empty-state-glass h3 {
+  font-size: 1.5rem;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-glass p {
+  color: var(--text-muted);
+}
+
+/* =========================================
+   Mobile Responsive
+   ========================================= */
+@media (max-width: 768px) {
+  .friends-page { padding: 1rem; }
+  
+  .friends-header { flex-direction: column; align-items: stretch; gap: 1rem; }
+  .glass-search-bar { max-width: 100%; }
+  
+  .glass-tabs-nav { border-radius: 12px; }
+  .tab-btn { min-width: auto; flex: 1; padding: 0.6rem; }
+  .tab-btn span { display: none; } /* Hide label on mobile, show only icon/count */
+  .tab-count { position: absolute; top: 4px; right: 4px; font-size: 0.65rem; }
+}

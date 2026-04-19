@@ -1,0 +1,122 @@
+.coming-soon-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.coming-soon-container {
+  max-width: 600px;
+  width: 100%;
+}
+
+.coming-soon-card {
+  padding: 3rem 2rem;
+  background: var(--surface);
+  border-radius: 24px;
+}
+
+.coming-soon-content {
+  text-align: center;
+}
+
+.coming-soon-icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.1), rgba(255, 107, 53, 0.1));
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+.coming-soon-icon svg {
+  color: var(--primary);
+  stroke-width: 1.5;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.coming-soon-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff4500, #ff6b35);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.coming-soon-content p {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.feature-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.feature-badge {
+  background: var(--surface-hover);
+  border: 1px solid var(--border);
+  padding: 0.625rem 1.25rem;
+  border-radius: 20px;
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.feature-badge:hover {
+  background: var(--border);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .coming-soon-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .coming-soon-content h1 {
+    font-size: 2rem;
+  }
+
+  .coming-soon-content p {
+    font-size: 1rem;
+  }
+
+  .coming-soon-icon {
+    width: 96px;
+    height: 96px;
+  }
+
+  .coming-soon-icon svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .feature-list {
+    gap: 0.75rem;
+  }
+
+  .feature-badge {
+    font-size: 0.8125rem;
+    padding: 0.5rem 1rem;
+  }
+}

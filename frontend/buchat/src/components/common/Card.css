@@ -1,0 +1,75 @@
+/* =========================================
+   Glass Card Styles
+   ========================================= */
+.glass-card {
+  /* Inherit Glass Variables from Home.css */
+  background: var(--glass-bg, rgba(255, 255, 255, 0.65));
+  backdrop-filter: var(--glass-blur, blur(14px));
+  -webkit-backdrop-filter: var(--glass-blur, blur(14px));
+  
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.6));
+  box-shadow: var(--glass-shadow, 0 8px 32px 0 rgba(31, 38, 135, 0.07));
+  
+  border-radius: 24px; /* Matches Home.css modern curve */
+  padding: 1.5rem;
+  
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* No Padding Variant */
+.glass-card.no-padding {
+  padding: 0;
+}
+
+/* =========================================
+   Interactive States (Clickable)
+   ========================================= */
+.glass-card.interactive {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Hover Effects - Light Mode */
+.glass-card.interactive:hover {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.15);
+}
+
+/* Hover Effects - Dark Mode Override */
+[data-theme="dark"] .glass-card.interactive:hover {
+  background: rgba(255, 255, 255, 0.08); /* Slightly lighter dark glass */
+  border-color: rgba(255, 255, 255, 0.2);
+  
+  /* Subtle Neon Glow based on primary color */
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.1); 
+}
+
+/* =========================================
+   Utility Helpers
+   ========================================= */
+/* Optional: Inner shine for extra polish if needed */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.03),
+    transparent
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.glass-card.interactive:hover::before {
+  opacity: 1;
+}
